@@ -12,7 +12,7 @@ app.get('/', async function (request, result) {
     let throat = request.query.throat;
 
     if (text == null) {
-        result.end(JSON.stringify({ success: false, message: "No Text!"}));
+        result.end(JSON.stringify({success: false, message: "No Text!"}));
         return;
     }
 
@@ -23,11 +23,21 @@ app.get('/', async function (request, result) {
 
     console.log(encoded);
 
-    result.end(JSON.stringify({ success: true, message: "Working!", data: encoded}))
+    result.status(200).end(JSON.stringify({success: true, message: "Working!", data: encoded}))
 })
 
-const server = app.listen(8081,() => {
+const server = app.listen(8081, () => {
     const host = server.address().address
     const port = server.address().port
     console.log("Listening at http://%s:%s", host, port)
 });
+
+function generateID(length) {
+    let result = '';
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
