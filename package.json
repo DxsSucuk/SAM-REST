@@ -1,0 +1,21 @@
+{
+  "name": "sam-rest",
+  "version": "1.0.0",
+  "description": "A REST-API based on SAM",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/DxsSucuk/SAM-REST"
+  },
+  "author": "Presti",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sam-js": "^0.2.0",
+    "tweetnacl-util": "^0.15.1"
+  }
+}
